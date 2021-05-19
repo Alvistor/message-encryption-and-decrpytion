@@ -1,0 +1,23 @@
+#MESSAGE ENCRYPTION AND DECRYPTION
+
+Text = input('GIVE A SENTENCE:')
+Shift = int(input('ENTER A SHIFT KEY:'))
+encrpyt = ''
+decrpyt = ''
+for char in Text:
+    if char == ' ':
+        encrpyt = encrpyt + char
+    elif char.isupper():
+        encrpyt = encrpyt + chr((ord(char) + Shift - 65) % 26 + 65)
+    else:
+        encrpyt = encrpyt + chr((ord(char) + Shift - 97) % 26 + 97)
+print("ENCRPYTED MSG IS:", encrpyt)
+
+for char in encrpyt:
+    if char == ' ':
+        decrpyt = decrpyt + char
+    elif char.isupper():
+        decrpyt = decrpyt + chr((ord(char) - Shift - 65) % 26 + 65)
+    else:
+        decrpyt = decrpyt + chr((ord(char) - Shift - 97) % 26 + 97)
+print("DECRPYTED MSG IS:", decrpyt)
